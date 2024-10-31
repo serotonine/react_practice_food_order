@@ -10,12 +10,23 @@ export default function ModalCart({}) {
   const userProgressContext = useContext(UserProgressContext);
 
   const handleCloseModal = function () {
+    console.log("ON CLOSE");
     userProgressContext.hideCart();
+  };
+
+  const handleGoToCheckout = function () {
+    userProgressContext.showCheckout();
   };
 
   if (cartContext.cart.length === 0) {
     return (
-      <Modal className="cart" isOpen={userProgressContext.progress === "cart"}>
+      <Modal
+        className="cart"
+        isOpen={userProgressContext.progress === "cart"}
+        onCloseHandler={
+          userProgressContext.progress === "cart" ? handleCloseModal : null
+        }
+      >
         <p>You cart is currently empty.</p>
         <div className="modal-actions">
           <Button textOnly={true} onClick={handleCloseModal}>
@@ -25,9 +36,15 @@ export default function ModalCart({}) {
       </Modal>
     );
   }
-
+  
   return (
-    <Modal className="cart" isOpen={userProgressContext.progress === "cart"}>
+    <Modal
+      className="cart"
+      isOpen={userProgressContext.progress === "cart"}
+      onCloseHandler={
+        userProgressContext.progress === "cart" ? handleCloseModal : null
+      }
+    >
       {cartContext.cart.map((item) => {
         return (
           <div className="cart-item" key={item.id}>
@@ -47,7 +64,7 @@ export default function ModalCart({}) {
         <Button textOnly={true} onClick={handleCloseModal}>
           Close
         </Button>
-        <Button>Go to checkout</Button>
+        <Button onClick={handleGoToCheckout}>Go to checkout</Button>
       </div>
     </Modal>
   );

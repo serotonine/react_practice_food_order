@@ -17,6 +17,7 @@ Built from scratch Udemy [https://www.udemy.com/user/maximilian-schwarzmuller](M
 ##### Summary
 - Components
 - State
+- useRef()
 - Context
 - Reducer
 - Side Effects

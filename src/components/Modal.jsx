@@ -1,7 +1,12 @@
 import { createPortal } from "react-dom";
 import { useRef, useEffect } from "react";
 
-export default function Modal({ children, isOpen, className = "" }) {
+export default function Modal({
+  children,
+  isOpen,
+  onCloseHandler,
+  className = "",
+}) {
   const dialog = useRef();
 
   const _open = useEffect(() => {
@@ -15,9 +20,13 @@ export default function Modal({ children, isOpen, className = "" }) {
     // Clean up function.
     return () => modal.close();
   }, [isOpen]);
-
+  // OnClose = fix keydown event.
   return createPortal(
-    <dialog className={`modal ${className}`} ref={dialog}>
+    <dialog
+      className={`modal ${className}`}
+      ref={dialog}
+      onClose={onCloseHandler}
+    >
       {children}
     </dialog>,
     document.getElementById("modal")
