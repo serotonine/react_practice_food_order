@@ -15,11 +15,15 @@ Built from scratch Udemy [https://www.udemy.com/user/maximilian-schwarzmuller](M
 
 ### REACT 
 ##### Summary
-- Components
-- State
-- useRef()
-- Context
-- Reducer
-- Side Effects
+- Components,
+- Hooks,
+  - useState(),
+  - useRef(),
+  - useContext(),
+  - useCallback(),
+  - useReducer(),
+  - useEffect()
+  - custom hooks,
 - HTTP requests
-- Vite
+- Vite build tool
+- Host NodeJS application on AlwaysData.

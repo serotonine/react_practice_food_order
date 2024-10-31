@@ -1,24 +1,24 @@
-import { useEffect, useState } from "react";
-import { fetchMeals } from "../methods/http.js";
+import { useHttp } from "../hooks/useHttp.js";
+import { REST_URL } from "../config";
 import Meal from "./Meal.jsx";
 
+const httpConfig = {
+  method: "GET",
+};
 export default function Meals({ handleAddMeal }) {
-  const [_meals, setMeals] = useState([]);
-  useEffect(() => {
-    async function _fetchMeals() {
-      try {
-        const datas = await fetchMeals();
-        setMeals(datas);
-      } catch (error) {
-        return <p>Couille dans le potage.</p>;
-      }
-    }
-    _fetchMeals();
-  }, []);
+  const {
+    data: meals,
+    isLoading,
+    error,
+  } = useHttp(`${REST_URL}/meals`, httpConfig, []);
+
+  if (isLoading) {
+    return <p className="text-center">Fetching meals...</p>;
+  }
 
   return (
     <div id="meals">
-      {_meals.map((meal) => {
+      {meals.map((meal) => {
         return <Meal key={meal.id} meal={meal} />;
       })}
     </div>
