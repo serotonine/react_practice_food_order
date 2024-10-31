@@ -6,10 +6,12 @@ import CartContext from "../store/CartContext.jsx";
 
 export default function Meal({ meal }) {
   const _cartContext = useContext(CartContext);
-  // FUNCTIONS //
+
+  // HANDLER //
   function handleAddMeal() {
     _cartContext.addMeal(meal);
   }
+
   return (
     <section className="meal-item">
       <article>

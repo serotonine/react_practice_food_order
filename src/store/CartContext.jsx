@@ -4,6 +4,7 @@ const CartContext = createContext({
   cart: [],
   addMeal: (meal) => {},
   removeMeal: (id) => {},
+  resetCart: () => {},
 });
 // Return an updated state.
 function cartReducer(state, action) {
@@ -43,6 +44,9 @@ function cartReducer(state, action) {
       }
       return { ...state, cart: updatedCart };
       break;
+    case "RESET_CART":
+      return { ...state, cart: [] };
+      break;
   }
   return state;
 }
@@ -64,10 +68,14 @@ export function CartContextProvider({ children }) {
   function removeMeal(id) {
     dispatch({ type: "REMOVE_MEAL", id });
   }
+  function resetCart() {
+    dispatch({ type: "RESET_CART" });
+  }
   const cartContext = {
     cart: userCart.cart,
     addMeal,
     removeMeal,
+    resetCart,
   };
 
   return (
