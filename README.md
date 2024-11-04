@@ -3,7 +3,7 @@
 
 # REACT PRACTICE FOOD ORDER
 ### Repository
-[https://github.com/serotonine/react_food_order](https://github.com/serotonine/react_practice_food_order)
+[https://github.com/serotonine/react_practice_food_order](https://github.com/serotonine/react_practice_food_order)
 
 ### Page
 [ https://github.com/serotonine/react_food_order](https://github.com/serotonine/react_food_order)
