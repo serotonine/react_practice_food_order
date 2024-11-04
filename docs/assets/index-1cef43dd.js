@@ -7884,7 +7884,7 @@ function Checkout({}) {
     }
   );
 }
-const logo = "/assets/logo-3a62f2e6.jpg";
+const logo = "assets/logo-3a62f2e6.jpg";
 function Header({ sitename }) {
   const _cartContext = reactExports.useContext(CartContext);
   const _userContext = reactExports.useContext(UserProgressContext);
